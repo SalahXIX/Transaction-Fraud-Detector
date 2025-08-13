@@ -19,44 +19,46 @@ The pipeline covers all stages: data generation and preprocessing, model trainin
 ---
 
 ## 📂 Project Structure
-
+```bash
 MLOpsTraining/
 │
-├── api/                        # FastAPI application for serving predictions
+├── api/                      # FastAPI application for serving predictions
 │   └── app.py
 │
-├── data/                       # Data generation scripts
+├── data/                     # Data generation scripts
 │   └── load_data.py
 │
-├── utils/                      # Helper functions & logging
+├── utils/                    # Helper functions & logging
 │   ├── logger.py
 │   └── preprocessing.py
 │
-├── training/                   # Model training scripts
+├── training/                 # Model training scripts
 │   └── train_model.py
 │
-├── evaluation/                 # Evaluation scripts & visualizations
+├── evaluation/               # Evaluation scripts & visualizations
 │   └── evaluate.py
 │
-├── checks/                     # Model validation & helper scripts
+├── checks/                   # Model validation & helper scripts
 │   ├── model_checks.py
 │   ├── Input_runs.py
 │   └── model_downloader.py
 │
-├── models/                     # MLflow-logged models & artifacts
+├── models/                   # MLflow-logged models & artifacts
 │   └── artifacts/
 │       ├── MLmodel
 │       ├── python_model.pkl
 │       └── artifacts/EnsembleLearning.pkl
 │
-├── Automation.github/           # GitHub Actions workflows
+├── Automation.github/        # GitHub Actions workflows
 │   └── workflows/docker-ci.yml
 │
-├── docker-compose.yml           # Docker Compose configuration
-├── myapp.dockerfile             # Dockerfile for API container
-├── main.py                      # Orchestrator script: generate, preprocess, train, evaluate
-├── requirements.txt             # Python dependencies
+├── docker-compose.yml        # Docker Compose configuration
+├── myapp.dockerfile          # Dockerfile for API container
+├── main.py                   # Orchestrator script: generate, preprocess, train, evaluate
+├── requirements.txt          # Python dependencies
 └── README.md
+```
+
 
 
 | Area          | Tools & Libraries           |

@@ -1,0 +1,23 @@
+artifact_path: file:///Users/salahalalix/Desktop/pio-tech/MLOpsTraining/mlruns/0/models/m-0324e9f6fc9846749ebfe18c47fa6c07/artifacts
+flavors:
+  python_function:
+    artifacts:
+      model_file:
+        path: artifacts/EnsembleLearning.pkl
+        uri: /Users/salahalalix/Desktop/pio-tech/MLOpsTraining/models/EnsembleLearning.pkl
+    cloudpickle_version: 3.1.1
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.9.6
+    streamable: false
+mlflow_version: 3.1.4
+model_id: m-0324e9f6fc9846749ebfe18c47fa6c07
+model_size_bytes: 111926336
+model_uuid: m-0324e9f6fc9846749ebfe18c47fa6c07
+prompts: null
+run_id: 443c4ea8a4d74d999f429f72dda35c62
+utc_time_created: '2025-08-11 10:04:41.777949'

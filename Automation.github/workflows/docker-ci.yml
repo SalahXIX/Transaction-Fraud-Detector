@@ -1,0 +1,56 @@
+name: Build and Test Fraud API
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mlflow pandas
+
+      - name: Create models directory
+        run: mkdir -p models
+
+      - name: Download latest MLflow model
+        env:
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+        run: |
+          # Replace 'fraud_detection_model' with your model name
+          mlflow artifacts download -m "models:/fraud_detection_model/latest" -d ./models
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: docker build -f myapp.dockerfile -t fraud-api .
+
+      - name: Run container in detached mode
+        run: docker run -d -p 8000:8000 --name fraud-api-test fraud-api
+
+      - name: Wait for API to start
+        run: sleep 10
+
+      - name: Test /predict endpoint
+        run: |
+          curl -X POST http://localhost:8000/predict \
+            -H "Content-Type: application/json" \
+            -d '{"Hour":12,"Day":3,"Boundary":0,"Suspicious_car_rental":1,"Suspicious_fuel":0,"Cumulative_type_percent":0.5,"Cumulative_Unique_Locations":2,"Days_since_last":1}'
+
+      - name: Stop and remove container
+        run: docker rm -f fraud-api-test
+

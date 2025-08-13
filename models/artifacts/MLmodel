@@ -1,9 +1,9 @@
-artifact_path: artifacts/EnsembleLearning.pkl
+artifact_path: .
 flavors:
   python_function:
     artifacts:
       model_file:
-        path: artifacts/EnsembleLearning.pkl
+        path: EnsembleLearning.pkl
     cloudpickle_version: 3.1.1
     code: null
     env:

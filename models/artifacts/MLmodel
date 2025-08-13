@@ -1,10 +1,9 @@
-artifact_path: file:///Users/salahalalix/Desktop/pio-tech/MLOpsTraining/mlruns/0/models/m-0324e9f6fc9846749ebfe18c47fa6c07/artifacts
+artifact_path: artifacts/EnsembleLearning.pkl
 flavors:
   python_function:
     artifacts:
       model_file:
         path: artifacts/EnsembleLearning.pkl
-        uri: /Users/salahalalix/Desktop/pio-tech/MLOpsTraining/models/EnsembleLearning.pkl
     cloudpickle_version: 3.1.1
     code: null
     env:
